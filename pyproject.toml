@@ -37,12 +37,12 @@ entry-points = {file = ["entry-points.ini"]}
 "local_scheme" = "no-local-version"  # Don't include hash, or date, just postN
 # @ Update with your package name, ie:
 # @ "write_to" = "tutorial_solution/version.py"  # Write an actual file
-"write_to" = "my_package/version.py"  # Write an actual file
+"write_to" = "tutorial_solution/version.py"  # Write an actual file
 
 [project]
 # @ Update with your package name, ie:
 # @ name = "tutorial_solution"
-name = "my_package"
+name = "tutorial_solution"
 authors = []
 description = "tutorial_solution GeoIPS Plugin Package"
 readme = "README.md"
@@ -57,10 +57,10 @@ dynamic = ["version"]
 [project.entry-points."geoips.plugin_packages"]
 # @ Update with your package name, ie:
 # @ "tutorial_solution" = "tutorial_solution"
-"my_package" = "my_package"
+"tutorial_solution" = "tutorial_solution"
 
 [project.entry-points."geoips.algorithms"]
-"pmw_89test" = "my_package.plugins.modules.algorithms.pmw_89test"
+"pmw_89test" = "tutorial_solution.plugins.modules.algorithms.pmw_89test"
 
 # @ Add your own required entry points, based on your new functionality
 # [project.entry-points."geoips.algorithms"]
