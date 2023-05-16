@@ -55,9 +55,9 @@ fi
 # . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh @package@
 . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh my_package
 
-# @ NOTE: Update "template_basic_plugin" paths below to point to your package's
+# @ NOTE: Update "plugin_tutorial_solution" paths below to point to your package's
 # @ test scripts, ie
-# @   $GEOIPS_PACKAGES_DIR/template_basic_plugin -> $GEOIPS_PACKAGES_DIR/@package@
+# @   $GEOIPS_PACKAGES_DIR/plugin_tutorial_solution -> $GEOIPS_PACKAGES_DIR/@package@
 
 echo ""
 # "call" used in test_all_run.sh
@@ -65,9 +65,14 @@ for call in \
 \
             "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all `dirname $0`/../" \
             "test_interfaces" \
-            "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/test_config.sh" \
-            "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.global_clean.89-PCT-Product-Defaults.sh" \
-            "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.tc_clean.89-PCT-Fully-Specified.sh"
+            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.conus_annotated.my-cloud-base-height.sh" \
+            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.conus_annotated.my-cloud-top-height.sh" \
+            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.goes16_annotated.my-cloud-base-height.sh" \
+            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.goes16_clean.my-cloud-base-height.sh" \
+            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.goes16_clean.my-cloud-top-height.sh" \
+            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.japan_annotated.my-cloud-base-height.sh" \
+            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.japan_annotated.my-cloud-depth.sh" \
+            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.japan_annotated.my-cloud-top-height.sh"
 do
     . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
 done

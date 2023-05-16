@@ -19,7 +19,7 @@ run_procflow \
     --procflow single_source \
     --reader_name clavrx_hdf4 \
     --product_name "My-Cloud-Top-Height" \
-    --compare_path "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/outputs/clavrx.japan_annotated.my-cloud-top-height" \
+    --compare_path "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/outputs/clavrx.japan_annotated.my-cloud-top-height" \
     --output_formatter imagery_annotated \
     --filename_formatter geoips_fname \
     --minimum_coverage 0 \
