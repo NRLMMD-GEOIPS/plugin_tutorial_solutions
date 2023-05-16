@@ -27,10 +27,10 @@ GeoIPS Plugin Template" section in the README.md, leaving the appropriate
 content for your package's README file.
 
 
-tutorial_solution GeoIPS Plugin
+plugin_tutorial_solution GeoIPS Plugin
 ==========================
 
-The tutorial_solution package is a GeoIPS-compatible plugin, intended to be used within
+The plugin_tutorial_solution package is a GeoIPS-compatible plugin, intended to be used within
 the GeoIPS ecosystem.  Please see the
 [GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips#readme) for
 more information on the GeoIPS plugin architecture and base infrastructure.
@@ -39,7 +39,7 @@ more information on the GeoIPS plugin architecture and base infrastructure.
 Package Overview
 -----------------
 
-The tutorial_solution plugin provides the capability for
+The plugin_tutorial_solution plugin provides the capability for
 
 @ Please include a brief description of what capability this package provides.
 
@@ -68,17 +68,17 @@ If GeoIPS Base is not yet installed, follow the
 [installation instructions](https://github.com/NRLMMD-GEOIPS/geoips#installation)
 within the geoips source repo documentation:
 
-Install tutorial_solution package
+Install plugin_tutorial_solution package
 ----------------------------
 ```bash
 
     # Ensure GeoIPS Python environment is enabled.
 
-    git clone https://github.com/NRLMMD-GEOIPS/tutorial_solution $GEOIPS_PACKAGES_DIR/tutorial_solution
-    pip install -e $GEOIPS_PACKAGES_DIR/tutorial_solution
+    git clone https://github.com/NRLMMD-GEOIPS/plugin_tutorial_solution $GEOIPS_PACKAGES_DIR/plugin_tutorial_solution
+    pip install -e $GEOIPS_PACKAGES_DIR/plugin_tutorial_solution
 ```
 
-Test tutorial_solution installation
+Test plugin_tutorial_solution installation
 -----------------------------
 ```bash
 
@@ -87,5 +87,5 @@ Test tutorial_solution installation
     # This script will run ALL tests within this package
     # @ You can add additional individual test calls if desired
     # @  (rather than forcing the user to run the full test)
-    $GEOIPS_PACKAGES_DIR/tutorial_solution/tests/test_all.sh
+    $GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/test_all.sh
 ```
