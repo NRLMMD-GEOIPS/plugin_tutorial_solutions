@@ -36,15 +36,15 @@ entry-points = {file = ["entry-points.ini"]}
 "version_scheme" = "post-release"  # Use current version .postN vs incrementing
 "local_scheme" = "no-local-version"  # Don't include hash, or date, just postN
 # @ Update with your package name, ie:
-# @ "write_to" = "@package@/version.py"  # Write an actual file
+# @ "write_to" = "tutorial_solution/version.py"  # Write an actual file
 "write_to" = "my_package/version.py"  # Write an actual file
 
 [project]
 # @ Update with your package name, ie:
-# @ name = "@package@"
+# @ name = "tutorial_solution"
 name = "my_package"
 authors = []
-description = "@package@ GeoIPS Plugin Package"
+description = "tutorial_solution GeoIPS Plugin Package"
 readme = "README.md"
 requires-python = ">=3.9"
 keywords = []
@@ -56,7 +56,7 @@ dynamic = ["version"]
 
 [project.entry-points."geoips.plugin_packages"]
 # @ Update with your package name, ie:
-# @ "@package@" = "@package@"
+# @ "tutorial_solution" = "tutorial_solution"
 "my_package" = "my_package"
 
 [project.entry-points."geoips.algorithms"]
@@ -64,21 +64,21 @@ dynamic = ["version"]
 
 # @ Add your own required entry points, based on your new functionality
 # [project.entry-points."geoips.algorithms"]
-# "@my_alg@" = "@package@.plugins.modules.algorithms.@my_alg@"
+# "@my_alg@" = "tutorial_solution.plugins.modules.algorithms.@my_alg@"
 # [project.entry-points."geoips.colormaps"]
-# "@my_cmap@" = "@package@.plugins.modules.colormaps.@my_cmap@"
+# "@my_cmap@" = "tutorial_solution.plugins.modules.colormaps.@my_cmap@"
 # [project.entry-points."geoips.interpolators"]
-# "@my_interp@" = "@package@.plugins.modules.interpolators.@my_interp@"
+# "@my_interp@" = "tutorial_solution.plugins.modules.interpolators.@my_interp@"
 # [project.entry-points."geoips.output_formatters"]
-# "@my_output_format_1@" = "@package@.plugins.modules.output_formatters.@my_output_format_1@"
-# "@my_output_format_2@" = "@package@.plugins.modules.output_formatters.@my_output_format_2@"
+# "@my_output_format_1@" = "tutorial_solution.plugins.modules.output_formatters.@my_output_format_1@"
+# "@my_output_format_2@" = "tutorial_solution.plugins.modules.output_formatters.@my_output_format_2@"
 # [project.entry-points."geoips.readers"]
-# "@my_reader@" = "@package@.plugins.modules.readers.@myreader@"
+# "@my_reader@" = "tutorial_solution.plugins.modules.readers.@myreader@"
 # [project.entry-points."geoips.trackfile_parsers"]
-# "@my_parser@" = "@package@.plugins.modules.trackfile_parsers.@my_parser@"
+# "@my_parser@" = "tutorial_solution.plugins.modules.trackfile_parsers.@my_parser@"
 # [project.entry-points."geoips.filename_formatters"]
-# "@my_fname@" = "@package@.plugins.modules.filename_formatters.@my_fname@"
+# "@my_fname@" = "tutorial_solution.plugins.modules.filename_formatters.@my_fname@"
 # [project.entry-points."geoips.title_formatters"]
-# "@my_title@" = "@package@.plugins.modules.title_formatters.@my_title@"
+# "@my_title@" = "tutorial_solution.plugins.modules.title_formatters.@my_title@"
 # [project.entry-points."geoips.coverage_checkers"]
-# "@my_covg@" = "@package@.plugins.modules.coverage_checkers.@my_covg@"
+# "@my_covg@" = "tutorial_solution.plugins.modules.coverage_checkers.@my_covg@"
