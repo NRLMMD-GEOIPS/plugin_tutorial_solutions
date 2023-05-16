@@ -60,7 +60,7 @@ dynamic = ["version"]
 "tutorial_solution" = "tutorial_solution"
 
 [project.entry-points."geoips.algorithms"]
-"pmw_89test" = "tutorial_solution.plugins.modules.algorithms.pmw_89test"
+"my_cloud_depth" = "tutorial_solution.plugins.modules.algorithms.my_cloud_depth"
 
 # @ Add your own required entry points, based on your new functionality
 # [project.entry-points."geoips.algorithms"]
