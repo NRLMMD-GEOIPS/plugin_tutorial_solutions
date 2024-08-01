@@ -44,3 +44,22 @@ spec:
           plugin:
             name: colorful_cloud_height
             arguments: {}
+    - name: Unregistered-Cloud-Depth
+      family: unsectored_xarray_dict_to_algorithm_to_output_format
+      source_names: [clavrx]
+      docstring: |
+        CLAVR-x Unregistered Cloud Depth
+      spec:
+        variables: ["DATA:cld_height_acha", "DATA:cld_height_base", "DATA:latitude", "DATA:longitude"]
+        algorithm:
+          plugin:
+            name: my_cloud_depth_dict
+            arguments:
+              variables: ["DATA:cld_height_acha", "DATA:cld_height_base", "DATA:latitude", "DATA:longitude"]
+              output_product_name: DATA:Unregistered-Cloud-Depth
+              output_data_range: [0, 20]
+              scale_factor: 0.001
+              min_outbounds: "crop"
+              max_outbounds: "crop"
+              norm: False
+              inverse: False

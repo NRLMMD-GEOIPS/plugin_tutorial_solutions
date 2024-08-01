@@ -1,0 +1,33 @@
+interface: products
+family: list
+name: my_layered_products
+docstring: |
+  Data fusion products which layer multiple data types over a geographical area.
+spec:
+  products:
+    - name: Layered-Visible-CloudMask-TPW
+      source_names: ["layered"]
+      family: xarray_dict_to_output_format
+      docstring: |
+        Layer output from data fusion cloud mask over GOES data
+      spec:
+        coverage_checker:
+          plugin:
+            name: masked_arrays
+            arguments:
+              variable_name: cloud_mask_dataset:Preprocessed-Cloud-Masked-Infrared
+    - name: Layered-Visible-CloudMask-TPW-Vertical
+      source_names: ["layered"]
+      family: xarray_dict_to_output_format
+      docstring: |
+        Layer output from data fusion cloud mask over GOES data
+      spec:
+        coverage_checker:
+          plugin:
+            name: masked_arrays
+            arguments:
+              variable_name: cloud_mask_dataset:Preprocessed-Cloud-Masked-Infrared
+        mpl_colors_info:
+          tpw:
+            colorbar_kwargs:
+              orientation: "vertical" 

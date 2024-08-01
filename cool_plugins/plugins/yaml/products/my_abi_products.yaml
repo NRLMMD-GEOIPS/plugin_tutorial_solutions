@@ -1,0 +1,26 @@
+interface: products
+family: list
+name: my_abi_products
+docstring: |
+  My very own ABI imagery products
+spec:
+  products:
+    - name: TPW
+      source_names: ["abi"]
+      docstring: |
+        Total Precipitable Water for ABI
+      product_defaults: TPW-CIMSS
+      spec:
+        variables: ["TPW"]
+    - name: TPW-More-Ticks
+      source_names: ["abi"]
+      docstring: |
+        Total Precipitable Water for ABI
+      product_defaults: TPW-CIMSS
+      spec:
+        variables: ["TPW"]
+        colormapper:
+          plugin:
+            name: matplotlib_linear_norm
+            arguments:
+              cbar_ticks: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65]
