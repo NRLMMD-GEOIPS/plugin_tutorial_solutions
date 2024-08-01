@@ -7,10 +7,9 @@
 
 [tool.poetry]
 # @ Update with your package name, ie:
-# @ name = "@package@"  # package available at the root of the project
-name = "my_package" # package available at the root of the project
+name = "cool_plugins" # package available at the root of the project
 version = "0.0.0"
-description = "@package@ GeoIPS Plugin Package"
+description = "cool_plugins GeoIPS Plugin Package"
 authors = []
 readme = "README.md"
 keywords = []
@@ -18,7 +17,7 @@ license = "LICENSE" # required
 classifiers = [ # // list of PyPI trove classifiers to describe the project
     "Programming Language :: Python :: 3",
 ]
-repository = "https://github.com/NRLMMD-GEOIPS/@package@"
+repository = "https://github.com/NRLMMD-GEOIPS/cool_plugins"
 #documentation = "set the url"
 include = ["**/*.txt", "**/*.py", "**/*.yaml"]
 
@@ -50,10 +49,9 @@ python = ">=3.10.0" # mandatory to declare the required python version
 # "matplotlib" = "*"
 # "xarray" = "*"
 
-# All plugins within the "@package@" package are automatically discovered
+# All plugins within the "cool_plugins" package are automatically discovered
 # during the plugin registry process.
 
 [tool.poetry.plugins."geoips.plugin_packages"]
 # @ Update with your package name, ie:
-# @ "@package@" = "@package@"
-"my_package" = "my_package"
+"cool_plugins" = "cool_plugins"

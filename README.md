@@ -17,10 +17,10 @@ GeoIPS Plugin Template" section in the README.md, leaving the appropriate
 content for your package's README file.
 
 
-@package@ GeoIPS Plugin
+cool_plugins GeoIPS Plugin
 ==========================
 
-The @package@ package is a GeoIPS-compatible plugin, intended to be used within
+The cool_plugins package is a GeoIPS-compatible plugin, intended to be used within
 the GeoIPS ecosystem.  Please see the
 [GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips#readme) for
 more information on the GeoIPS plugin architecture and base infrastructure.
@@ -28,7 +28,7 @@ more information on the GeoIPS plugin architecture and base infrastructure.
 Package Overview
 -----------------
 
-The @package@ plugin provides the capability for
+The cool_plugins plugin provides the capability for
 
 @ Please include a brief description of what capability this package provides.
 
@@ -57,28 +57,28 @@ If GeoIPS Base is not yet installed, follow the
 [installation instructions](https://github.com/NRLMMD-GEOIPS/geoips#installation)
 within the geoips source repo documentation:
 
-Install @package@ package
+Install cool_plugins package
 ----------------------------
 ```bash
 
     # Ensure GeoIPS Python environment is enabled.
 
-    # Clone and install @package@
-    git clone https://github.com/NRLMMD-GEOIPS/@package@ $GEOIPS_PACKAGES_DIR/@package@
-    pip install -e $GEOIPS_PACKAGES_DIR/@package@
+    # Clone and install cool_plugins
+    git clone https://github.com/NRLMMD-GEOIPS/cool_plugins $GEOIPS_PACKAGES_DIR/cool_plugins
+    pip install -e $GEOIPS_PACKAGES_DIR/cool_plugins
 
     # Add any additional clone/install/setup steps here
 ```
 
-Test @package@ installation
+Test cool_plugins installation
 -----------------------------
 ```bash
 
     # Ensure GeoIPS Python environment is enabled.
 
     # This script will run ALL tests within this package
-    $GEOIPS_PACKAGES_DIR/@package@/tests/test_all.sh
+    $GEOIPS_PACKAGES_DIR/cool_plugins/tests/test_all.sh
 
     # Individual direct test calls, for reference
-    $GEOIPS_PACKAGES_DIR/@package@/tests/scripts/<test_script_name>.sh
+    $GEOIPS_PACKAGES_DIR/cool_plugins/tests/scripts/<test_script_name>.sh
 ```
