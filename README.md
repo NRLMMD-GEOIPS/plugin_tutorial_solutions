@@ -10,7 +10,6 @@
     # # # for more details. If you did not receive the license, for more information see:
     # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-
 Basic GeoIPS Plugin Template
 =============================
 
@@ -19,46 +18,28 @@ compatible GeoIPS Plugin Package.  Each file within this repository contains
 appropriate modification instructions.
 
 To create your own functional plugin for GeoIPS, follow the
-[step by step instructions](./docs/template_instructions.rst) for
+[step by step instructions](./docs/source/userguide/template_instructions.rst) for
 modifying the template files within this repo.
 
-@ Once this repository has been set up properly, you can remove this "Basic
-GeoIPS Plugin Template" section in the README.md, leaving the appropriate
-content for your package's README file.
-
-
-plugin_tutorial_solution GeoIPS Plugin
+cool_plugins GeoIPS Plugin
 ==========================
 
-The plugin_tutorial_solution package is a GeoIPS-compatible plugin, intended to be used within
+The cool_plugins package is a GeoIPS-compatible plugin, intended to be used within
 the GeoIPS ecosystem.  Please see the
 [GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips#readme) for
 more information on the GeoIPS plugin architecture and base infrastructure.
 
-
 Package Overview
 -----------------
 
-The plugin_tutorial_solution plugin provides the capability for
-
-@ Please include a brief description of what capability this package provides.
-
-@ This section should be no more than 1-2 paragraphs, if you have additional
-@ information to include, please include in a "docs" subdirectory.
-
-@ Example overview:
-
-@ The template_basic_plugin package provides template files which can be used to create
-@ a fully compatible GeoIPS plugin.  This template repository is focused on basic functionality -
-@ ie, simple readers, products, output formats, etc.  Additional template repositories will be
-@ created for more sophisticated and complicated use cases.
+The cool_plugins plugin provides the capability for creating Cool Plugins.
 
 System Requirements
 ---------------------
 
 * geoips >= 1.10.0
 * Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
-* @ Add any additional system requirements, such as gfortran, etc
+* Coolness.
 
 IF REQUIRED: Install base geoips package
 ------------------------------------------------------------
@@ -68,24 +49,28 @@ If GeoIPS Base is not yet installed, follow the
 [installation instructions](https://github.com/NRLMMD-GEOIPS/geoips#installation)
 within the geoips source repo documentation:
 
-Install plugin_tutorial_solution package
+Install cool_plugins package
 ----------------------------
 ```bash
 
     # Ensure GeoIPS Python environment is enabled.
 
-    git clone https://github.com/NRLMMD-GEOIPS/plugin_tutorial_solution $GEOIPS_PACKAGES_DIR/plugin_tutorial_solution
-    pip install -e $GEOIPS_PACKAGES_DIR/plugin_tutorial_solution
+    # Clone and install cool_plugins
+    git clone https://github.com/NRLMMD-GEOIPS/cool_plugins $GEOIPS_PACKAGES_DIR/cool_plugins
+    pip install -e $GEOIPS_PACKAGES_DIR/cool_plugins
+
+    # Add any additional clone/install/setup steps here
 ```
 
-Test plugin_tutorial_solution installation
+Test cool_plugins installation
 -----------------------------
 ```bash
 
     # Ensure GeoIPS Python environment is enabled.
 
     # This script will run ALL tests within this package
-    # @ You can add additional individual test calls if desired
-    # @  (rather than forcing the user to run the full test)
-    $GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/test_all.sh
+    $GEOIPS_PACKAGES_DIR/cool_plugins/tests/test_all.sh
+
+    # Individual direct test calls, for reference
+    $GEOIPS_PACKAGES_DIR/cool_plugins/tests/scripts/<test_script_name>.sh
 ```

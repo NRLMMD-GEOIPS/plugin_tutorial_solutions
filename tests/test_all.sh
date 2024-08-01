@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # # # Distribution Statement A. Approved for public release. Distribution unlimited.
 # # #
 # # # Author:
@@ -19,20 +21,14 @@
 # Do not rename this script or test directory - automated integration
 # tests look for the tests/test_all.sh script for complete testing.
 
-#!/bin/bash
-
 # This should contain test calls to cover ALL required functionality tests
-# for the @package@ repo.
+# for this repo.
 
-# The $GEOIPS tests modules sourced within this script handle:
+# The $GEOIPS_PACKAGES_DIR/geoips tests modules sourced within this script handle:
    # setting up the appropriate associative arrays for tracking the overall
    #   return value,
    # calling the test scripts appropriately, and
    # setting the final return value.
-
-# Note you must use the variable "call" in the for the loop
-
-# @ Pass the name of your package to "test_all_pre.sh", ie
 
 if [[ ! -d $GEOIPS_PACKAGES_DIR/geoips ]]; then
     echo "Must CLONE geoips repository into \$GEOIPS_PACKAGES_DIR location"
@@ -43,36 +39,29 @@ if [[ ! -d $GEOIPS_PACKAGES_DIR/geoips ]]; then
     echo ""
     exit 1
 fi
-if [[ ! -f $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh ]]; then
-    echo "geoips-based testing utility does not exist:"
-    echo "  $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh"
-    echo ""
-    echo "Please ensure geoips repo is CLONED in GEOIPS_PACKAGES_DIR location"
-    echo "and up to date."
-    exit 2
-fi
 
-# . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh @package@
-. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh my_package
+repopath=`dirname $0`/../
 
-# @ NOTE: Update "plugin_tutorial_solution" paths below to point to your package's
+# @ Set the name of your package, for use in build_docs.sh and test_all_pre.sh, ie:
+# pkgname=@package@
+pkgname=my_package
+. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh $pkgname
+
+# @ NOTE: Update "template_basic_plugin" paths below to point to your package's
 # @ test scripts, ie
-# @   $GEOIPS_PACKAGES_DIR/plugin_tutorial_solution -> $GEOIPS_PACKAGES_DIR/@package@
+# @   $GEOIPS_PACKAGES_DIR/template_basic_plugin -> $GEOIPS_PACKAGES_DIR/@package@
 
 echo ""
+# Note you must use the variable "call" in the for the loop
 # "call" used in test_all_run.sh
+
 for call in \
 \
-            "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all `dirname $0`/../" \
-            "test_interfaces" \
-            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.conus_annotated.my-cloud-base-height.sh" \
-            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.conus_annotated.my-cloud-top-height.sh" \
-            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.goes16_annotated.my-cloud-base-height.sh" \
-            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.goes16_clean.my-cloud-base-height.sh" \
-            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.goes16_clean.my-cloud-top-height.sh" \
-            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.japan_annotated.my-cloud-base-height.sh" \
-            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.japan_annotated.my-cloud-depth.sh" \
-            "$GEOIPS_PACKAGES_DIR/plugin_tutorial_solution/tests/scripts/clavrx.japan_annotated.my-cloud-top-height.sh"
+  "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all $repopath" \
+  "$GEOIPS_PACKAGES_DIR/geoips/docs/build_docs.sh $repopath $pkgname html_only" \
+  "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/test_config.sh" \
+  "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.global_clean.89-PCT-Using-Product-Defaults.sh" \
+  "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.tc_clean.89-PCT-Fully-Specified.sh"
 do
     . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
 done
