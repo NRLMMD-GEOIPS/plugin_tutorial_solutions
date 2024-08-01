@@ -1,0 +1,1 @@
+"""Colormappers for cool plugins"""

@@ -1,0 +1,23 @@
+interface: feature_annotators
+name: tutorial
+family: cartopy
+docstring: |
+  Tutorial feature annotator
+spec:
+  coastline:
+    enabled: true
+    edgecolor: midnightblue
+    linewidth: 2
+  borders:
+    enabled: true
+    edgecolor: red
+    linewidth: 2
+  states:
+    enabled: true
+    edgecolor: darkslategray
+    linewidth: 2
+  rivers:
+    enabled: true
+    edgecolor: cyan
+    linewidth: 1
+
