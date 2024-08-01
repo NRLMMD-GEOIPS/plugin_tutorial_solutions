@@ -19,6 +19,8 @@ run_procflow \
     --product_name "My-Cloud-Top-Height" \
     --output_formatter imagery_annotated \
     --filename_formatter geoips_fname \
+    --feature_annotator tutorial \
+    --gridline_annotator tutorial \
     --minimum_coverage 0 \
     --sector_list conus 
 ss_retval=$?

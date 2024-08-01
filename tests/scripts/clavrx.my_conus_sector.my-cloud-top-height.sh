@@ -20,7 +20,7 @@ run_procflow \
     --output_formatter imagery_annotated \
     --filename_formatter geoips_fname \
     --minimum_coverage 0 \
-    --sector_list conus 
+    --sector_list my_conus_sector
 ss_retval=$?
 
 exit $((ss_retval))

@@ -1,10 +1,3 @@
-# @ pyproject.toml specifies how to install your package, and ensures it is
-# @ installed as a valid GeoIPS plugin package.
-
-# @ Replace all instances of @ within this template with appropriate values for
-# @ your particular use case.
-# @ Once complete, remove all lines containing "@" from this file.
-
 [build-system]
 requires = ["setuptools>=61.2", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
@@ -35,16 +28,12 @@ entry-points = {file = ["entry-points.ini"]}
 [tool.setuptools_scm]
 "version_scheme" = "post-release"  # Use current version .postN vs incrementing
 "local_scheme" = "no-local-version"  # Don't include hash, or date, just postN
-# @ Update with your package name, ie:
-# @ "write_to" = "plugin_tutorial_solution/version.py"  # Write an actual file
-"write_to" = "plugin_tutorial_solution/version.py"  # Write an actual file
+"write_to" = "cool_plugins/_version.py"  # Write an actual file
 
 [project]
-# @ Update with your package name, ie:
-# @ name = "plugin_tutorial_solution"
-name = "plugin_tutorial_solution"
+name = "cool_plugins"
 authors = []
-description = "plugin_tutorial_solution GeoIPS Plugin Package"
+description = "cool_plugins GeoIPS Plugin Package"
 readme = "README.md"
 requires-python = ">=3.9"
 keywords = []
@@ -55,30 +44,14 @@ classifiers = [
 dynamic = ["version"]
 
 [project.entry-points."geoips.plugin_packages"]
-# @ Update with your package name, ie:
-# @ "plugin_tutorial_solution" = "plugin_tutorial_solution"
-"plugin_tutorial_solution" = "plugin_tutorial_solution"
+"cool_plugins" = "cool_plugins"
 
 [project.entry-points."geoips.algorithms"]
-"my_cloud_depth" = "plugin_tutorial_solution.plugins.modules.algorithms.my_cloud_depth"
+"pmw_89test" = "cool_plugins.plugins.modules.algorithms.pmw_89test"
+"my_cloud_depth" = "cool_plugins.plugins.modules.algorithms.my_cloud_depth"
 
-# @ Add your own required entry points, based on your new functionality
-# [project.entry-points."geoips.algorithms"]
-# "@my_alg@" = "plugin_tutorial_solution.plugins.modules.algorithms.@my_alg@"
-# [project.entry-points."geoips.colormaps"]
-# "@my_cmap@" = "plugin_tutorial_solution.plugins.modules.colormaps.@my_cmap@"
-# [project.entry-points."geoips.interpolators"]
-# "@my_interp@" = "plugin_tutorial_solution.plugins.modules.interpolators.@my_interp@"
-# [project.entry-points."geoips.output_formatters"]
-# "@my_output_format_1@" = "plugin_tutorial_solution.plugins.modules.output_formatters.@my_output_format_1@"
-# "@my_output_format_2@" = "plugin_tutorial_solution.plugins.modules.output_formatters.@my_output_format_2@"
-# [project.entry-points."geoips.readers"]
-# "@my_reader@" = "plugin_tutorial_solution.plugins.modules.readers.@myreader@"
-# [project.entry-points."geoips.trackfile_parsers"]
-# "@my_parser@" = "plugin_tutorial_solution.plugins.modules.trackfile_parsers.@my_parser@"
-# [project.entry-points."geoips.filename_formatters"]
-# "@my_fname@" = "plugin_tutorial_solution.plugins.modules.filename_formatters.@my_fname@"
-# [project.entry-points."geoips.title_formatters"]
-# "@my_title@" = "plugin_tutorial_solution.plugins.modules.title_formatters.@my_title@"
-# [project.entry-points."geoips.coverage_checkers"]
-# "@my_covg@" = "plugin_tutorial_solution.plugins.modules.coverage_checkers.@my_covg@"
+[project.entry-points."geoips.colormappers"]
+"colorful_cloud_height" = "cool_plugins.plugins.modules.colormappers.colorful_cloud_height"
+
+[project.entry-points."geoips.output_formatters"]
+"my_netcdf_output" = "cool_plugins.plugins.modules.output_formatters.my_netcdf_output"

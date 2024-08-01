@@ -10,17 +10,9 @@
 # # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-#!/bin/bash
+"""Template repository demonstrating a basic GeoIPS plugin example."""
 
-run_procflow \
-    $GEOIPS_TESTDATA_DIR/test_data_clavrx/data/goes16_2023101_1600/clavrx_OR_ABI-L1b-RadF-M6C01_G16_s20231011600207.level2.hdf \
-    --procflow single_source \
-    --reader_name clavrx_hdf4 \
-    --product_name "My-Cloud-Top-Height" \
-    --output_formatter imagery_annotated \
-    --filename_formatter geoips_fname \
-    --minimum_coverage 0 \
-    --sector_list conus 
-ss_retval=$?
+# NOTE: _version.py is generated automatically during build/install
+from ._version import __version__, __version_tuple__
 
-exit $((ss_retval))
+__all__ = ["__version__", "__version_tuple__"]

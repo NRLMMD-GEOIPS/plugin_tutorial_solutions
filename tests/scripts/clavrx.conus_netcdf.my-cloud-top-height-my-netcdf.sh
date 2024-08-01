@@ -17,8 +17,8 @@ run_procflow \
     --procflow single_source \
     --reader_name clavrx_hdf4 \
     --product_name "My-Cloud-Top-Height" \
-    --output_formatter imagery_annotated \
-    --filename_formatter geoips_fname \
+    --output_formatter my_netcdf_output \
+    --filename_formatter geoips_netcdf_fname \
     --minimum_coverage 0 \
     --sector_list conus 
 ss_retval=$?
