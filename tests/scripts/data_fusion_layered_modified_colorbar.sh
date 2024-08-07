@@ -16,7 +16,7 @@ geoips run data_fusion \
           --fuse_dataset_name ref \
           --fuse_output_format imagery_clean \
           --fuse_order 0 \
-      --fuse_files $GEOIPS_OUTDIRS/preprocessed/algorithms/Cloud-Masked-Infrared_latitude_longitude/fusion/geo/goes_east/20230411/20230411.160020.geo.Cloud-Masked-Infrared_latitude_longitude.goes_east.nc \
+      --fuse_files $GEOIPS_OUTDIRS/preprocessed/algorithms/Cloud-Masked-Infrared_latitude_longitude/fusion/geo/goes_east/20230411/20230411.160020* \
           --fuse_reader_name geoips_netcdf \
           --fuse_product_name Preprocessed-Cloud-Masked-Infrared \
           --fuse_dataset_name cloud_mask_dataset \
