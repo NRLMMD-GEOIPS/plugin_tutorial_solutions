@@ -3,9 +3,11 @@
 
 #!/bin/bash
 
+sector=${1:-goes_east}
+
 geoips run data_fusion \
       --filename_formatter geoips_netcdf_fname \
-      --sector_list goes_east \
+      --sector_list $sector \
       --fusion_final_output_formatter netcdf_geoips \
       --fusion_final_product_name Cloud-Masked-Infrared \
       --fusion_final_source_name fusion \
