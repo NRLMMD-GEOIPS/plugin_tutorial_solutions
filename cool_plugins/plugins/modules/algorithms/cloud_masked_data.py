@@ -30,10 +30,9 @@ def call(xarray_dict):
     final_variable_name = xarray_dict["METADATA"].product_name
 
     # Cloud mask 0 clear, 1 probably clear, 2 probaby cloudy, 3 cloudy
-    final_xarray[final_variable_name] = bt.where(cm>1)
+    final_xarray[final_variable_name] = bt.where(cm > 1)
     final_xarray["latitude"] = bt_dataset["latitude"]
     final_xarray["longitude"] = bt_dataset["longitude"]
     final_xarray.attrs = xarray_dict["METADATA"].attrs
 
     return final_xarray
-

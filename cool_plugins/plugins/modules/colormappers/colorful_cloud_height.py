@@ -1,4 +1,5 @@
 """Module containing colormap for colorful cloud height product."""
+
 import logging
 
 LOG = logging.getLogger(__name__)
