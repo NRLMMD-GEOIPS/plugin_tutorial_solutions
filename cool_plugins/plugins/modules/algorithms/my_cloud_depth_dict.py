@@ -64,7 +64,6 @@ def call(
           "product_name" of appropriately scaled channel data
         * degrees Kelvin.
     """
-
     # DATA:cloud_height_acha
     cth_dsname, cth_varname = variables[0].split(":")
     # DATA:cloud_height_base
