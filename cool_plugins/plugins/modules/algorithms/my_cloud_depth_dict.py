@@ -1,22 +1,20 @@
-# # # This source code is protected under the license referenced at
-# # # https://github.com/NRLMMD-GEOIPS.
-
 """Cloud depth product.
 
 Difference of cloud top height and cloud base height.
 """
+
 import logging
 from xarray import DataArray
 
 LOG = logging.getLogger(__name__)
 
 interface = "algorithms"
-family = "xarray_to_xarray"
-name = "my_cloud_depth"
+family = "xarray_dict_to_xarray"
+name = "my_cloud_depth_dict"
 
 
 def call(
-    xobj,
+    xarray_dict,
     variables,
     product_name,
     output_data_range,
@@ -32,8 +30,8 @@ def call(
 
     Parameters
     ----------
-    xobj : xarray Dataset
-        * xarray dataset containing variables "variables" of channel data
+    xarray_dict: dict of xarray Dataset
+        * xarray datasets containing variables "variables" of channel data
         * Channel data should be in degrees Kelvin
     variables: list of str
         * List of variables that will be used out of xobj within this algorithm.
@@ -66,8 +64,14 @@ def call(
           "product_name" of appropriately scaled channel data
         * degrees Kelvin.
     """
-    cth = xobj[variables[0]]
-    cbh = xobj[variables[1]]
+    # DATA:cloud_height_acha
+    cth_dsname, cth_varname = variables[0].split(":")
+    # DATA:cloud_height_base
+    cbh_dsname, cbh_varname = variables[1].split(":")
+    # DATA:Unregistered-Cloud-Depth
+    out_dsname, out_varname = product_name.split(":")
+    cth = xarray_dict[cth_dsname][cth_varname]
+    cbh = xarray_dict[cbh_dsname][cbh_varname]
 
     out = (cth - cbh) * scale_factor
 
@@ -82,6 +86,7 @@ def call(
         norm=norm,
         inverse=inverse,
     )
-    xobj[product_name] = DataArray(data)
+    xarray_dict[out_dsname][out_varname] = DataArray(data)
+    xobj = xarray_dict[out_dsname]
 
     return xobj

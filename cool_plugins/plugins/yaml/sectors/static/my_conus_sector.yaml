@@ -15,8 +15,8 @@ spec:
   description: CONUS
   projection:
     a: 6371228.0
-    lat_0: 37
-    lon_0: -96
+    lat_0: 37.0
+    lon_0: -96.0
     proj: eqc
     units: m
   resolution:

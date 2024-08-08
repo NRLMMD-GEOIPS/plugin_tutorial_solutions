@@ -1,14 +1,5 @@
-# # # Distribution Statement A. Approved for public release. Distribution unlimited.
-# # #
-# # # Author:
-# # # Naval Research Laboratory, Marine Meteorology Division
-# # #
-# # # This program is free software: you can redistribute it and/or modify it under
-# # # the terms of the NRLMMD License included with this program. This program is
-# # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
-# # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
-# # # for more details. If you did not receive the license, for more information see:
-# # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+# # # This source code is protected under the license referenced at
+# # # https://github.com/NRLMMD-GEOIPS.
 
 #!/bin/bash
 
@@ -43,16 +34,15 @@
 # @ by convention.
 #     --compare_path "$GEOIPS_PACKAGES_DIR/@package@/tests/outputs/@test_single_source@" \
 
-# @ Modify the run_procflow command appropriately for your use case.
+# @ Modify the 'geoips run single_source' command appropriately for your use case.
 # @ Notes above on individual arguments.
 
     # @ NOTE: --resampled_read argument required for ABI and AHI readers.
-    # @ Move into "run_procflow" call if using ABI/AHI.
+    # @ Move into "geoips run single_source" call if using ABI/AHI.
     # --resampled_read \
 
-run_procflow \
+geoips run single_source \
     $GEOIPS_TESTDATA_DIR/test_data_amsr2/data/AMSR2-MBT_v2r2_GW1_s202005180620480_e202005180759470_c202005180937100.nc \
-    --procflow single_source \
     --reader_name amsr2_netcdf \
     --product_name "89-PCT-Fully-Specified" \
     --compare_path "${GEOIPS_PACKAGES_DIR}/template_basic_plugin/tests/outputs/amsr2.tc_clean.89-PCT-Fully-Specified" \
@@ -64,9 +54,8 @@ ss_retval=$?
 
 # Example for modifying command line call. Switch to an "annotated" image, then
 # modify 89-Test product to swap out colormaps, ranges, etc.
-# run_procflow \
+# geoips run single_source \
 #     $GEOIPS_TESTDATA_DIR/test_data_amsr2/data/AMSR2-MBT_v2r2_GW1_s202005180620480_e202005180759470_c202005180937100.nc \
-#     --procflow single_source \
 #     --reader_name amsr2_netcdf \
 #     --product_name "89-Test" \
 #     --output_formatter imagery_annotated \

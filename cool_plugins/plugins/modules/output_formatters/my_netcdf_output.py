@@ -1,16 +1,7 @@
-# # # Distribution Statement A. Approved for public release. Distribution unlimited.
-# # #
-# # # Author:
-# # # Naval Research Laboratory, Marine Meteorology Division
-# # #
-# # # This program is free software: you can redistribute it and/or modify it under
-# # # the terms of the NRLMMD License included with this program. This program is
-# # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
-# # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
-# # # for more details. If you did not receive the license, for more information see:
-# # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+# # # This source code is protected under the license referenced at
+# # # https://github.com/NRLMMD-GEOIPS.
 
-"""Geoips style NetCDF output format."""
+"""Cool Plugins style NetCDF output format."""
 import logging
 
 LOG = logging.getLogger(__name__)
@@ -32,11 +23,11 @@ def call(xarray_obj, product_names, output_fnames):
     for product_name in product_names:
         prod_xarray[product_name] = xarray_obj[product_name]
 
-    # Let's add some attributes that are necessary for us
-    prod_xarray = prod_xarray.assign_attrs(Starring="Richard Karn",
-                                           Featuring="Jonathan Taylor Thomas",
-                                           ProducedBy="Carmen Finestra")
-
+    prod_xarray = prod_xarray.assign_attrs(
+        Starring="Richard Karn",
+        Featuring="Jonathan Taylor Thomas",
+        ProducedBy="Carmen Finestra",
+    )
     from geoips.plugins.modules.output_formatters.netcdf_xarray import (
         write_xarray_netcdf,
     )

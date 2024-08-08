@@ -1,14 +1,5 @@
-    # # # Distribution Statement A. Approved for public release. Distribution unlimited.
-    # # #
-    # # # Author:
-    # # # Naval Research Laboratory, Marine Meteorology Division
-    # # #
-    # # # This program is free software: you can redistribute it and/or modify it under
-    # # # the terms of the NRLMMD License included with this program. This program is
-    # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
-    # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
-    # # # for more details. If you did not receive the license, for more information see:
-    # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+    # # # This source code is protected under the license referenced at
+    # # # https://github.com/NRLMMD-GEOIPS.
 
 Basic GeoIPS Plugin Template
 =============================
@@ -21,6 +12,11 @@ To create your own functional plugin for GeoIPS, follow the
 [step by step instructions](./docs/source/userguide/template_instructions.rst) for
 modifying the template files within this repo.
 
+@ Once this repository has been set up properly, you can remove this "Basic
+GeoIPS Plugin Template" section in the README.md, leaving the appropriate
+content for your package's README file.
+
+
 cool_plugins GeoIPS Plugin
 ==========================
 
@@ -32,14 +28,26 @@ more information on the GeoIPS plugin architecture and base infrastructure.
 Package Overview
 -----------------
 
-The cool_plugins plugin provides the capability for creating Cool Plugins.
+The cool_plugins plugin provides the capability for
+
+@ Please include a brief description of what capability this package provides.
+
+@ This section should be no more than 1-2 paragraphs, if you have additional
+@ information to include, please include in a "docs" subdirectory.
+
+@ Example overview:
+
+@ The template_basic_plugin package provides template files which can be used to create
+@ a fully compatible GeoIPS plugin.  This template repository is focused on basic functionality -
+@ ie, simple readers, products, output formats, etc.  Additional template repositories will be
+@ created for more sophisticated and complicated use cases.
 
 System Requirements
 ---------------------
 
 * geoips >= 1.10.0
 * Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
-* Coolness.
+* @ Add any additional system requirements, such as gfortran, etc
 
 IF REQUIRED: Install base geoips package
 ------------------------------------------------------------

@@ -1,0 +1,29 @@
+bug fix:
+- description: |
+    Fixed a small bug in template_basic_plugin's pyproject.toml. The file was
+    incorrectly set up after the switch to poetry and my vscode TOML highlighter caught
+    the error with the dependency.
+  files:
+    added:
+    - ''
+    deleted:
+    - ''
+    modified:
+    - 'pyproject.toml'
+    moved:
+    - ''
+  related-issue:
+    number: 20
+    repo_url: ''
+  title: 'Fixed error in template_basic_plugin pyproject.toml'
+Refactoring Updates:
+  - description: |
+      Replaced all occurences of ``run_procflow`` in the test scripts with ``geoips run``
+      so the files don't conflict with the content in 2024 tutorial.
+    files:
+      modified:
+        - tests/scripts/amsr2.global_clean.89-PCT-Using-Product-Defaults.sh
+        - tests/scripts/amsr2.tc_clean.89-PCT-Fully-Specified.sh
+        - tests/scripts/test_config.sh
+    title: 'Replaced all occurences of ``run_procflow`` in test scripts with ``geoips run``'
+

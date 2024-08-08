@@ -2,8 +2,7 @@ interface: products
 family: list
 name: my_clavrx_products
 docstring: |
-  CLAVR-x Imagery Products
-
+  CLAVR-x imagery products
 spec:
   products:
     - name: My-Cloud-Top-Height
@@ -23,54 +22,74 @@ spec:
     - name: My-Cloud-Depth
       source_names: [clavrx]
       docstring: |
-        CLAVR-x Cloud Depth
+        CLAVR-x Cloud my Cloud Depth
       product_defaults: Cloud-Height
       spec:
-        variables:
-          ["cld_height_acha", "cld_height_base", "latitude", "longitude"]
+        variables: ["cld_height_acha", "cld_height_base", "latitude", "longitude"]
         algorithm:
           plugin:
             name: my_cloud_depth
             arguments:
               output_data_range: [0, 20]
               scale_factor: 0.001
-    - name: Cloud-Base-ASCII-Palette-Colors
-      source_names: [clavrx]
-      docstring: |
-        CLAVR-x Cloud Base Height,
-        using an ascii palette on disk for colors
-      product_defaults: Cloud-Height
-      spec:
-        variables: ["cld_height_base", "latitude", "longitude"]
-        colormapper:
-          plugin:
-            name: matplotlib_linear_norm
-            arguments:
-              cmap_name: tpw_pwat
-              cmap_source: ascii
-              # cmap_path: ../geoips/geoips/plugins/txt/ascii_palettes/tpw_pwat.txt
-    - name: Cloud-Base-Builtin-Colors
-      source_names: [clavrx]
-      docstring: |
-        CLAVR-x Cloud Base Height,
-        using built-in matplotloib colors
-      product_defaults: Cloud-Height
-      spec:
-        variables: ["cld_height_base", "latitude", "longitude"]
-        colormapper:
-          plugin:
-            name: matplotlib_linear_norm
-            arguments:
-              cmap_name: gnuplot
-              cmap_source: matplotlib
     - name: Cloud-Base-Python-Colors
       source_names: [clavrx]
       docstring: |
         CLAVR-x Colorful Cloud Base Height,
-        using a python-based custom colormapper
+        Using a python-based custom colormapper.
       product_defaults: Cloud-Height
       spec:
         variables: ["cld_height_base", "latitude", "longitude"]
+        colormapper:
+          plugin:
+            name: colorful_cloud_height
+            arguments: {}
+    - name: Cloud-Depth-Alg-Cmap
+      family: algorithm_colormapper
+      source_names: [clavrx]
+      docstring: |
+        CLAVR-x Algorithm/Colormapper Cloud Depth
+      spec:
+        variables: ["DATA:cld_height_acha", "DATA:cld_height_base", "DATA:latitude", "DATA:longitude"]
+        algorithm:
+          plugin:
+            name: my_cloud_depth_dict
+            arguments:
+              variables: ["DATA:cld_height_acha", "DATA:cld_height_base", "DATA:latitude", "DATA:longitude"]
+              output_product_name: DATA:Cloud-Depth-Alg-Cmap`
+              output_data_range: [0, 20]
+              scale_factor: 0.001
+              min_outbounds: "crop"
+              max_outbounds: "crop"
+              norm: False
+              inverse: False
+        colormapper:
+          plugin:
+            name: colorful_cloud_height
+            arguments: {}
+    - name: Cloud-Depth-Alg-Interp-Cmap
+      family: algorithm_interpolator_colormapper
+      source_names: [clavrx]
+      docstring: |
+        CLAVR-x Algorithm/Interpolator/Colormapper Cloud Depth
+      spec:
+        variables: ["DATA:cld_height_acha", "DATA:cld_height_base", "DATA:latitude", "DATA:longitude"]
+        algorithm:
+          plugin:
+            name: my_cloud_depth_dict
+            arguments:
+              variables: ["DATA:cld_height_acha", "DATA:cld_height_base", "DATA:latitude", "DATA:longitude"]
+              output_product_name: DATA:Cloud-Depth-Alg-Interp-Cmap
+              output_data_range: [0, 20]
+              scale_factor: 0.001
+              min_outbounds: "crop"
+              max_outbounds: "crop"
+              norm: False
+              inverse: False
+        interpolator:
+          plugin:
+            name: interp_nearest
+            arguments: {}
         colormapper:
           plugin:
             name: colorful_cloud_height

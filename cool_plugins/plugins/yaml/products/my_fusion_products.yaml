@@ -1,0 +1,41 @@
+interface: products
+family: list
+name: my_fusion_products
+docstring: |
+  Data fusion products which combine multiple data types over a geographical area.
+spec:
+  products:
+    - name: Cloud-Masked-Infrared
+      source_names: ["fusion"]
+      family: algorithm_colormapper
+      docstring: "infrared gray product with masked clouds"
+      spec:
+        display_name: Cloud Masked Infrared-Gray
+        algorithm:
+          plugin:
+            name: cloud_masked_data
+            arguments: {}
+        colormapper:
+          plugin:
+            name: matplotlib_linear_norm
+            arguments:
+              data_range: [-100.0, 50.0]
+              cmap_name: Greys
+              cbar_label: "Brightness Temperatures (degrees Celsius)"
+    - name: Preprocessed-Cloud-Masked-Infrared
+      source_names: ["fusion"]
+      docstring: "infrared gray product with masked clouds"
+      product_defaults: Infrared-Gray
+      spec:
+        variables: ["Cloud-Masked-Infrared"]
+        algorithm:
+          plugin:
+            name: single_channel
+            arguments:
+              input_units: celsius
+        colormapper:
+          plugin:
+            name: matplotlib_linear_norm
+            arguments:
+              cmap_name: cividis
+
